@@ -35,18 +35,18 @@ def essaymaker(str,keyword,video_id, formatting_words):
     time.sleep(5)
 
 
-    url = "http://bark.phon.ioc.ee/punctuator"
+    #url = "http://bark.phon.ioc.ee/punctuator"
 
     payload={'text': str}
     files=[
 
     ]
-    headers = {}
+    '''headers = {}
     try:
       response = requests.request("POST", url, headers=headers, data=payload, files=files)
     except:
-        print("Reconnecting Api")
-    str=response.text
+        print("Reconnecting Api")'''
+    str=str
     
     
     
@@ -56,7 +56,7 @@ def essaymaker(str,keyword,video_id, formatting_words):
     endptr=5
     wrapper = textwrap.TextWrapper(width=150)
     print("Getting images")
-    images=get_images(keyword)
+    #images=get_images(keyword)
     print("working on transcript")
     count=0
     while(startptr<len(sentences)):
@@ -78,7 +78,7 @@ def essaymaker(str,keyword,video_id, formatting_words):
     
  
     t+=wrapper.fill(text=value)
-    t=images[0]+"<h4>Description:</h4>\n"+ video_description(video_id)+"\n\n" +t + f"\n\n<h6>Video</h6> Source: https://www.youtube.com/watch?v={video_id}"
+    #t=images[0]+"<h4>Description:</h4>\n"+ video_description(video_id)+"\n\n" +t + f"\n\n<h6>Video</h6> Source: https://www.youtube.com/watch?v={video_id}"
     #print(t)
     return t
 
