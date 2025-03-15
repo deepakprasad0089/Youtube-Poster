@@ -1,5 +1,6 @@
-USERNAME=""    # wordpress username
-PASSWORD=""   # wordpress application password
-UNSPLASH_TOKEN="<unsplash_token>"
+USERNAME="ecomtest"    # wordpress username
+PASSWORD="Sk7f 2JVC GzY6 96hM RhxY wiTo"
+UNSPLASH_TOKEN="ALFqiYe54Kz9pORr9ZV2ALI5Dg4j_8GAbUswOTVJ_b0"
 MAX_WORDS=100
 TIMEZONE="Asia/Kolkata"   # your timezone
+URL="http://localhost/site/wordpress/wp-json/wp/v2/posts"

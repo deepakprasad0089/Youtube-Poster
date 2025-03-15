@@ -52,6 +52,7 @@ def transcript(video_id, keyword, formatting_words):
      
     try:
      transcript=YouTubeTranscriptApi.get_transcript(video_id)
+     print(transcript)
      longpara=""
      for i in transcript:
         longpara+=i["text"]+" "
@@ -66,7 +67,7 @@ def transcript(video_id, keyword, formatting_words):
         print(f"{keyword}/{video_id}.txt")
         file_exists = exists(f"{keyword}/{video_id}.txt")
         if file_exists==False:
-           wordpress(title,transcript)
+           #wordpress(title,transcript)
            transcript=title.center(50)+"\n\n" +transcript
         else:
            transcript="#created"
@@ -99,19 +100,16 @@ def directory(dir):
 with open ("keyword.json","r") as f:
     search=json.loads(f.read())
 
-for keyword in search:
-    line=list(keyword.keys())[0]
-    formatting_words=list(keyword.values())[0]
-    """for  line in lines:
-    print(line)"""
-    html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + 
-urllib.request.pathname2url(line))
-    video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+for category in search:
+    category=list(category.keys())
+    video_links=list(category.values())[0]
+    video_ids = re.findall(r"watch\?v=(\S{11})", video_links)
     video_ids=list(set(video_ids))   #unique video ids
     print(video_ids)
     directory(line)
     for i in video_ids:
         script=transcript(i,line,formatting_words)
+
         if script==""  :
             pass
         elif script=="#created":
